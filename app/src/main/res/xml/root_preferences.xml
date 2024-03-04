@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        app:key="measurements"
+        app:title="Measurements">
+
+        <EditTextPreference
+            app:key="period"
+            app:title="Period between two measurements in the same area (in minutes)"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="mForAverage"
+            app:title="Number of measurements to consider to encode the map"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            app:key="time"
+            app:singleLineTitle="false"
+            app:title="Measurement time (in seconds)"
+            app:useSimpleSummaryProvider="true" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="notifications"
+        app:title="Background and Notifications">
+
+        <SwitchPreferenceCompat
+            app:key="background_measurements"
+            app:singleLineTitle="false"
+            app:title="Notification for no measured area"
+            app:summary="Necessary always on location"/>
+        <ListPreference
+            app:dependency="background_measurements"
+            app:key="pedantism"
+            app:singleLineTitle="false"
+            app:useSimpleSummaryProvider="true"
+            app:title="Notify me if no measurements in"
+            android:entries="@array/area_entries"
+            android:entryValues="@array/area_values"
+            />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
